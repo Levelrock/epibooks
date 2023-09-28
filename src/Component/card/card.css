@@ -1,0 +1,7 @@
+.Bordo{
+    border: solid red 4px;
+}
+
+.card img{
+    cursor: pointer;
+}

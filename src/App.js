@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Home from './Pages/Home';
+import BookDetails from './Pages/BookDetails';
+import ErrorNotFound from './Pages/ErrorNotFound';
+import PostContext from './Context/PostContext';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
-function App() {
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <PostContext>
+      <BrowserRouter>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/bookdetail/:bookasin" element={<BookDetails />} />
+          <Route path="*" element={<ErrorNotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </PostContext>
   );
 }
 
